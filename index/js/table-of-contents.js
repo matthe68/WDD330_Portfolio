@@ -3,7 +3,7 @@ window.onload = async function() {
     .then(response => response.json())
     .then(function(json) {
       for (let i in json.dynamicTableOfContents) {
-        console.log("update: 2:07");
+        console.log("update: 4:05");
         let dynamicTable = document.querySelector('#assignment-ordered-list');
         let li = document.createElement('li');
         let label = document.createElement('span');
