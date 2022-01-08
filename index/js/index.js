@@ -7,15 +7,17 @@ window.onload = async function() {
     .then(response => response.json())
     .then(function(json) {
       for (let i in json.dynamicTableOfContents) {
-        let dynamicTable = document.querySelector('#dynamic-table-of-contents');
+        console.log("update: 2:07");
+        let dynamicTable = document.querySelector('#assignment-ordered-list');
         let li = document.createElement('li');
         let label = document.createElement('span');
         let a = document.createElement('a');
 
-        label = json.dynamicTableOfContents[i].label;
+        label.innerHTML = json.dynamicTableOfContents[i].label;
         let link = json.dynamicTableOfContents[i].url;
+        let linkText = json.dynamicTableOfContents[i].urlText;
         a.href = link;
-        a.innerHTML = link;
+        a.innerHTML = String(linkText);
         li.appendChild(label);
         li.appendChild(a);
         dynamicTable.appendChild(li);
