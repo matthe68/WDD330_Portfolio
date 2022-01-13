@@ -27,9 +27,16 @@
   <h3>
     Programming basics that EVERYONE ought to know by now
   </h3>
+  <h4>Chapter 2 of Novice To Ninja</h4>
   <p>Comments: single line comments are made by using the double slash '// '. Multi-line comments are made by using a combination of '/*' and '*/'. </p>
   <p>Grammar: obviously use a ';' at the end of each line of code, separate each line of code onto its own line. A block is a series of statements that are inside of to curly brackets, '{ }'.</p>
   <p>Primitive Data Types: String, Symbol, Number, Boolean, Undefined, and Null. Everything else is considered an object and follows the object rules. </p>
+  <p>Variable Assignment: <b>IMPORTANT!</b> "var" is no longer used. "Let" and "const" are the only currently acceptable ways of assigning variables. "Var" still exists, but it only exists so that programs can still be backwards compatible.</p>
+  <p>Assignment by reference: For any primitive data types, values of variables are assigned directly. For object types however, they are assigned by reference. This means that if I make a variable equal to another variable, this only makes a copy. Now if I change one variable I am changing both. There are a few ways around this, but it is something that developers must be aware of as this is odd behavior seen in Javascript that is not seen in other languages.</p>
+  <p>Important String Methods: charAt- important as it gives the character at a given index. indexOf: Gives the index of the first found instance of a character. </p>
+  <p>Symbols: From what I can glean from other reading, the symbol type creates a UUID for a description. It seems that the reason for creating this type is that it would enable private properties to be created in JavaScript. However, symbols do not achieve property privacy. there is a class method that can be called that will return an array of property synmbols. But it can be used to make properties more private. </p>
+  <h4>Chapter 3 of Novice To Ninja</h4>
+  
   <footer>
     &copy;2022 | Matthew B. Christensen | Utah
     <div id="last-updated"></div>
