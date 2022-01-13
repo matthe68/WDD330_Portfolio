@@ -9,6 +9,11 @@
       "label": "Week1: ",
       "url": "week1/story_editor.html",
       "urlText": "Story Editor"
+    },
+    {
+      "label": "Week2: ",
+      "url": "week2/week2_notes.html",
+      "urlText": "Notes"
     }
   ]
 }
