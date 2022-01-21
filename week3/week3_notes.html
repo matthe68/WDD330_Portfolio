@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notes for week 1 reading">
+  <link rel="stylesheet" href="../index/css/normalize.css">
+  <link rel="stylesheet" href="../index/css/small.css">
+  <link rel="stylesheet" href="../index/css/medium.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <title>Week 2 Notes</title>
+</head>
+
+<body>
+  <header>
+    <h1>
+      Matthew B. Christensen
+    </h1>
+  </header>
+  <h2>
+    WDD 330: Week 2 Notes
+  </h2>
+  <hr>
+  <h3>
+    Object Methods: this
+  </h3>
+  <p>
+    Methods: Objects can act or have functions if you assign them to. For instance- "Object.funtion = function() {console.log("hi")}" is one way you could assign a function to an object. When we use objects to represent entities it is called object-orented-programming.
+  </p>
+  <p>
+    This: the this key word is used inside of object methods to refer to the object that is calling the function. 
+  </p>
+  <p>
+    Arrow Functions: They do not have their own 'this' key word. In the function || let user = {firstName: "Ilya", sayHi() { let arrow = () => alert(this.firstName); arrow(); }}; || The 'this' key word refers to the outer function of 'sayHi'. This seems somewhat obvious to me as when you call an arrow function if you just use a parameter such as || (a) => function(a) || a would be the 'this' in this case. 
+  </p>
+  <h3>Ladder Tool Example</h3>
+  <button id="up">Up</button>
+  <span id="ladder"></span>
+  <button id="down">Down</button>
+  <button id="reset">Reset</button>
+  <footer>
+    &copy;2022 | Matthew B. Christensen | Utah
+    <div id="last-updated"></div>
+  </footer>
+  <script src="../index/js/last-updated.js"></script>
+  <script src="week3_notes.js"></script>
+</body>
+</html>
