@@ -41,6 +41,57 @@
   <span id="ladder"></span>
   <button id="down">Down</button>
   <button id="reset">Reset</button>
+  <h3>This in JavaScript</h3>
+  <p>
+    'this' as a keyword can have many different meanings depending on the context that it is called in. There are six different ways 'this' can take on new values. 1: global context, 2: object construction, 3: object method, 4: simple function, 5: arrow function, 6: event listener.
+  </p>
+  <p>
+    Global Context: 'This' refers to the Window object in the browser.
+  </p>
+  <p>
+    Object Construction: 'This' refers to the instance in question. So when creating an object, if I have function Car (maker) { this.maker = maker } the 'this' refers to the car object that I am creating, so the maker of the specific car I am making would be whatever I input when calling 'let tacoma = new Car('Toyota');'. 
+  </p>
+  <p>
+    Object Method: It is the exact same as Object Construction except in the case of calling a method within an object. 'This' then refers to the object that the method is being called from. 
+  </p>
+  <p>
+    Simple Function: In a simple function however, this refers to the browser. Meaning, even if I call a simple method from within an object, it will not anomynously compile to refer to the object calling it, the 'this' being called will still refer to the window. A good fix for this is to create a variable that will refer to 'this'. For instance, 'const self = this; function() {self.function()} will compile correctly. Even better in my opinion though would be to use the arrow function since I am more familiar with arrow functions. 
+  </p>
+  <p>
+    Arrow Functions: In an arrow function, the 'this' will refer to however the 'this' would be handled in whatever context surrounds the arrow function.
+  </p>
+  <p>
+    Event Listeners: 'This' is set to refer to the element that fired the event. If I need an object within an event listener to be referenced by 'this' I can use the bind method - 'this.listener = this.object.bind(this)'.
+  </p>
+  <h3>Chapter 5: Objects</h3>
+  <p>
+    It is possible to see if an objects method exists with the in operator. For instance: 'city' in superman; If 'city' is not a property of superman than it will return false. If however it is assigned to anything in 'superman' it will return true. Obvioulsy I could also compare it to undefined. The built in Object method to find out is to use .hasOwnProperty('property'). 
+  </p>
+  <p>
+    The best way to list all keys or property values or both is to use the Object.keys or Object.values option and then loop through them. If I want to list all key value pairs I can use entries instead. 
+  </p>
+  <p>
+    Properties can be removed from an object with the delete operator. 
+  </p>
+  <p>
+    IMPORTANT!::: Objects can be used to make name spaces. Since functions can be stored in an object you can create an object that holds your functions. Then you can call these functions any time using 'object.function'. 
+  </p>
+  <p>
+    Interesting Note: JSON just refers to the string version of an object. When stringifying the object it will put double quotation marks around both the key and the value. I don't know how that can be true since 'json' files are just the objects themselves, but I do pass data to the database in this stringified json format, so maybe that is true.    
+  </p>
+  <p>
+    I have obviously used Regular Expressions before, but this <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/5/k01nwu16/">sitepoint.com</a> is a great link to reference for specifics if I can't remember a rule.
+  </p>
+  <h3>Chapter 6: The DOM</h3>
+  <p>Live Collections: document.getElementsByClassName() and document.getElementsByTagName() are both 'Live Collections." This means that if I set a variable equal to one of these and then add a new element to the DOM, these lists will automatically update without me needing to make a new call to update them manually.</p>
+  <p>Style: You can change the css of a sheet through javascript by using the Style property. In order to do this, take the cabab case of the css and turn it into camel case. Then you can assign values to the styles and it will show up in the DOM.</p>
+  <p>Display None: Probably the most useful of the style properties is the display = 'none'. I often create whole new classes for this and then append the class name to the tag when I could just change the style through javascript alone and clean up my css code. </p>
+  <p>Caution: All in all, use style changes in with javascript with caution as it is best practice to do what I have been doing and create a class that can be added to a tag. </p>
+  <h3>Chapter 7: Events</h3>
+  <p>Using addEventListener is a better, newer, more accepted way to handle events than to use dom.onclick. Also, Parenethesis should not be used on the function in the event listener- 'addEventListener('click',doSomething)'. </p>
+  <p>Types of Events: Mouse Events- click, mousedown, mouseup, dblckick, mouseover, mouseout. Keyboard Events- keydown, keypress, keyup. Touch Events: touchstart, touchend, touchmove, touchenter, touchleave, touchcancel.</p>
+  <p>Bubbling: This is default behavior, whenever an event happens to a target element it bubbles up to all other elements above. </p>
+
   <footer>
     &copy;2022 | Matthew B. Christensen | Utah
     <div id="last-updated"></div>
