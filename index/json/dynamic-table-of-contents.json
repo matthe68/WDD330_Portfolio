@@ -19,6 +19,16 @@
       "label": "Week2: ",
       "url": "week2/week2_team_activity.html",
       "urlText": "Team Activity"
+    },
+    {
+      "label": "Week3: ",
+      "url": "week3/week3_notes.html",
+      "urlText": "Notes"
+    },
+    {
+      "label": "Week3: ",
+      "url": "week3/week3_team_activity.html",
+      "urlText": "Team Activity"
     }
   ]
 }
