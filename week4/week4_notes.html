@@ -25,9 +25,31 @@
   </h2>
   <hr>
   <h3>
-    Object Methods: this
+    Chapter 8: Forms
   </h3>
-  
+  <p>Forms: I've used these a lot in the past already. form.submit() is an important method. Submits the form automatically. form.reset() is nice as it automatically resets all the form controls back to their initial values. This can also be achieved with the button type='reset'. Reset buttons are considered poor for usablitity however since it is too easy for a user to accidentally click it and loose all the data that they have already filled out. Form.action property can be used to set the attribute of a form so that its sent to somewhere on the server.</p>
+  <p>Form Events: Things get a little more interesting here. Form events like 'focus' can be super useful. Focus happens when the form is clicked on or otherwise navigated to (possibly with a tab key). Blur happens when the user moves the focus away from the form element. Change happens when the user moves away from an element specifically after changing it. If both blur and change events are set blur will fire after change. And then there is submit which occures when the form is submitted. This can be super useful to show updates to a user when a form is submitted on success status or errors. It is also possible to set an 'autofocus' so that an element is focused upon loading the page.</p>
+  <p>Disabling the Submit Button: buttons can be disabled by adding 'disabled' inside the tag. This can be changed programmatically using javascript by setting the property equal to true or false. This way after I am done validating a form I can make the button active so that I don't have to do as much error checking upon allowing the submit. </p>
+  <h3>
+    Chapter 12: Object Oriented Programming
+  </h3>
+  <p>Encapsulation: remove inner workings and keep them hidden. You don't need to know how the engine works to drive a car. Hiding away inner workings or 'Encapsulating' them is a super important part of OOP.</p>
+  <p>Polymorphism: Using the same elements in different objects. Often times this means that we can create methods and share them between objects.</p>
+  <p>Inheritance: The act of creating an object and then creating another more specific object from it. For instance, transportation could be an object or type. Car would have all the attributes of a general transportation but then have more car specific things added as well. </p>
+  <p>In javascript you can now have constructors by doing something simple like 'const Object = function(initializations) { attributes and functions}</p> 
+  <h3>
+    Chapter 15 Modern JavaScript Development
+  </h3>
+  <p>Libraries: You can use libraries to help simplify code. For instance, JQuery is a library that can be added. I've used it before and its super easy to use. The downside of course is that the library is needed to be downloaded as well with your site and can increase the weight and decrease the speed of your website. </p>
+  <p>Modules: Modules are just js files with the word export in it. You can then import it with the syntax 'import { functionName } from "./location/of/script";'. I use these a lot in react at work. </p>
+  <p>Default Exports: I didn't know you could do this, you can export a single variable, this will be a default export instead of a module. </p>
+  <p>MVC Frameworks: Separating out parts of a web app into models, views and controllers. I use this in my PHP class a lot. </p>
+  <p>MV Frameworks: Aurelia, Angular, Ember, and React are all frameworks that can be used to organize large websites. </p>
+  <p>Web Components: W3C is workin gon devloping a standard that will allow for custom tags and other things to be created which would allow for completely contained and reusable components in any application. This is like the components I make in react except that those are only available in react and you still have CSS files that need to be imported with the component. </p>
+  <p>Package.json contains a list of packages used in a project so that someone can easily import a project and know which packages they need to download to make it work the same in their dev environment. </p>
+  <p>NPM is a popular package manager. Its not always super secure though so companies try to limit the amount of npm packages that they use. </p>
+  <p>Deploying JS: Best practice is to bundle/minify all the packages into a single smaller script and include it at the end of the page.</p>
+  <p>Babel - its the most popular transpiler for converting the most up to date version of ecmascript into an older version. Typescript is compied into js I think using babel actually. </p>
   <footer>
     &copy;2022 | Matthew B. Christensen | Utah
     <div id="last-updated"></div>
