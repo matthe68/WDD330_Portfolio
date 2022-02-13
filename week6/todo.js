@@ -1,5 +1,5 @@
-import { ListItem } from "listItem.js";
-import { ListObject } from "listItem.js";
+import { ListItem } from "./listItem.js";
+import { ListObject } from "./listItem.js";
 
 // function createListItem()
 let listObject = ListObject();
