@@ -1,4 +1,3 @@
-import { ListItem } from "./listItem.js";
 import { ListObject } from "./listItem.js";
 
 // function createListItem()
