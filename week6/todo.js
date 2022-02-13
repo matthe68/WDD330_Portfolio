@@ -21,6 +21,13 @@ activeStatus.appendChild(buttonCompleted);
 listFooter.appendChild(numTasks);
 listFooter.appendChild(activeStatus);
 todoHolder.appendChild(listFooter);
+
+let inputBar = document.querySelector('div');
+let input = document.createElement('input');
+let addButton = document.createElement('button');
+addButton.innerHTML = "+";
+inputBar.appendChild(input);
+inputBar.appendChild(addButton);
 // for (let i = 0; i < listObject.numberOfTasks; ++i) {
 //   let newListItem = listObject.
 // }
