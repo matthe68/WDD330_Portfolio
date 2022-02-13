@@ -5,11 +5,11 @@ class ListItem {
   get getItem() {
     return this.item.task;
   }
-  set toggleActive() {
-    this.item.active ? this.item.active = false : this.item.active = true;
+  set toggleActive(trueFalse) {
+    this.item.active = trueFalse;
   }
-  set deleted() {
-    this.deleted = true;
+  set deleted(trueFalse) {
+    this.deleted = trueFalse;
   }
 }
 export default ListItem
