@@ -1,4 +1,4 @@
-import { ListObject } from "./listItem.js";
+import { ListObject } from "./listObject.js";
 
 // function createListItem()
 let listObject = ListObject();
