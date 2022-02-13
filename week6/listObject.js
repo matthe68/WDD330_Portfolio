@@ -3,7 +3,7 @@ export class ListObject {
     this.list = [];
     this.sort = "all";
   }
-  list() {
+  listObjects() {
     return this.list;
   }
   numberOfTasks() {
