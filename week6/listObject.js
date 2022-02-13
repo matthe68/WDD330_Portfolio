@@ -1,6 +1,4 @@
-import { ListItem } from "./listItem.js";
-
-class ListObject {
+export class ListObject {
   constructor() {
     this.list = [];
     this.sort = "all";
@@ -26,4 +24,17 @@ class ListObject {
   }
 }
 
-export default ListObject;
+export class ListItem {
+  constructor(string) {
+    this.item = {"active": true, "task": string, "deleted": false }
+  }
+  get getItem() {
+    return this.item.task;
+  }
+  set toggleActive(trueFalse) {
+    this.item.active = trueFalse;
+  }
+  set deleted(trueFalse) {
+    this.deleted = trueFalse;
+  }
+}
