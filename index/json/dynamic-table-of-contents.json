@@ -49,6 +49,11 @@
       "label": "Week5: ",
       "url": "week5/team_activity.html",
       "urlText": "Team Activity"
+    },
+    {
+      "label": "Week6: ",
+      "url": "week6/todo.html",
+      "urlText": "TODO"
     }
   ]
 }
