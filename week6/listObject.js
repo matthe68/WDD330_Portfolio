@@ -16,7 +16,7 @@ export class ListObject {
     this.sort = string;
   }
   set newListItem(string) {
-    let newItem = ListItem(string);
+    let newItem = new ListItem(string);
     this.list.push(newItem);
   }
   set removeItem(string) {

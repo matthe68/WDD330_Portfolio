@@ -2,7 +2,7 @@ import { ListObject } from "./listObject.js";
 import { ListItem } from "./listObject.js";
 
 // function createListItem()
-let listObject = ListObject();
+let listObject = new ListObject();
 let todoHolder = Document.querySelector("#todo-list");
 let listFooter = Document.createElement('div');
 let numTasks = Document.createElement('span');
