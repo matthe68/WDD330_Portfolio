@@ -7,7 +7,7 @@ export class ListObject {
     return this.list;
   }
   numberOfTasks() {
-    return this.list.length();
+    return this.list.length;
   }
   renderStatus() {
     return this.sort;
