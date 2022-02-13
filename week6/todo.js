@@ -1,11 +1,11 @@
 import { ListObject } from "./listObject.js";
 import { ListItem } from "./listObject.js";
 
-function visibilityToggle() {
-  if (this.classList.contains('filter-toggle')) {
+function visibilityToggle(x) {
+  if (x.target.classList.contains('filter-toggle')) {
     let visibilityButtons = document.querySelector('.filter-toggle');
     visibilityButtons.removeClass('active');
-    this.classList.add('active');
+    x.target.classList.add('active');
   }
   
 }
@@ -30,9 +30,9 @@ let buttonCompleted = document.createElement('button');
 buttonCompleted.innerHTML = "Completed";
 buttonCompleted.classList.add('filter-toggle');
 
-buttonAll.addEventListener('click', visibilityToggle());
-buttonActive.addEventListener('click', visibilityToggle());
-buttonActive.classList.add('filter-toggle');
+buttonAll.addEventListener('click', visibilityToggle);
+buttonActive.addEventListener('click', visibilityToggle);
+buttonCompleted.addEventListener('click', visibilityToggle);
 
 activeStatus.appendChild(buttonAll);
 activeStatus.appendChild(buttonActive);
