@@ -7,12 +7,12 @@ let todoHolder = document.querySelector("#todo-list");
 let listFooter = document.createElement('div');
 let numTasks = document.createElement('span');
 numTasks.innerHTML = `${listObject.numberOfTasks()} tasks left`;
-let activeStatus = document.createElement('div');
+let activeStatus = document.createElement('span');
 let buttonAll = document.createElement('button');
 buttonAll.innerHTML = "All";
 let buttonActive = document.createElement('button');
 buttonActive.innerHTML = "Active";
-let buttonCompleted = document.createElement('Completed');
+let buttonCompleted = document.createElement('button');
 buttonCompleted.innerHTML = "Completed";
 
 activeStatus.appendChild(buttonAll);
