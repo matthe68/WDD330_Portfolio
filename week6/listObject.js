@@ -3,23 +3,23 @@ export class ListObject {
     this.list = [];
     this.sort = "all";
   }
-  get list() {
+  list() {
     return this.list;
   }
-  get numberOfTasks() {
+  numberOfTasks() {
     return this.list.length();
   }
-  get renderStatus() {
+  renderStatus() {
     return this.sort;
   }
-  set setRenderStatus(string) {
+  setRenderStatus(string) {
     this.sort = string;
   }
-  set newListItem(string) {
+  newListItem(string) {
     let newItem = new ListItem(string);
     this.list.push(newItem);
   }
-  set removeItem(string) {
+  removeItem(string) {
     this.list = this.list.filter((object) => object.getItem() != string);
   }
 }
@@ -28,13 +28,13 @@ export class ListItem {
   constructor(string) {
     this.item = {"active": true, "task": string, "deleted": false }
   }
-  get getItem() {
+  getItem() {
     return this.item.task;
   }
-  set toggleActive(trueFalse) {
+  toggleActive(trueFalse) {
     this.item.active = trueFalse;
   }
-  set deleted(trueFalse) {
+  deleted(trueFalse) {
     this.deleted = trueFalse;
   }
 }
