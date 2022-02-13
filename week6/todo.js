@@ -3,11 +3,14 @@ import { ListItem } from "./listObject.js";
 
 function visibilityToggle(x) {
   if (x.target.classList.contains('filter-toggle')) {
-    let visibilityButtons = document.querySelector('.filter-toggle');
+    let visibilityButtons = document.querySelectorAll('.filter-toggle');
     visibilityButtons.foreach((i) => i.classList.removeClass('active'));
     x.target.classList.add('active');
   }
   
+}
+function addNewTask(x) {
+
 }
 
 // function createListItem()
@@ -45,6 +48,7 @@ let inputBar = document.querySelector('div');
 let input = document.createElement('input');
 let addButton = document.createElement('button');
 addButton.innerHTML = "+";
+addButton.addEventListener('click', addNewTask);
 inputBar.appendChild(input);
 inputBar.appendChild(addButton);
 // for (let i = 0; i < listObject.numberOfTasks; ++i) {
