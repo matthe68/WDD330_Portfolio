@@ -4,7 +4,7 @@ import { ListItem } from "./listObject.js";
 function visibilityToggle(x) {
   if (x.target.classList.contains('filter-toggle')) {
     let visibilityButtons = document.querySelector('.filter-toggle');
-    visibilityButtons.removeClass('active');
+    visibilityButtons.foreach((i) => i.classList.removeClass('active'));
     x.target.classList.add('active');
   }
   
@@ -20,7 +20,7 @@ let activeStatus = document.createElement('span');
 
 let buttonAll = document.createElement('button');
 buttonAll.innerHTML = "All";
-buttonAll.classList.add('filterToggle');
+buttonAll.classList.add('filter-toggle');
 
 let buttonActive = document.createElement('button');
 buttonActive.innerHTML = "Active";
