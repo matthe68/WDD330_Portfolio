@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notes for week 1 reading">
+  <link rel="stylesheet" href="../index/css/normalize.css">
+  <link rel="stylesheet" href="../index/css/small.css">
+  <link rel="stylesheet" href="../index/css/medium.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <title>Week 7 Notes</title>
+</head>
+
+<body>
+  <header>
+    <h1>
+      Matthew B. Christensen
+    </h1>
+  </header>
+  <h2>
+    WDD 330: Week 7 Notes
+  </h2>
+  <hr>
+  <h3>
+    Chapter 11: Further Functions
+  </h3>
+  <p>Something New: Call- Functions can use the 'this' key word. If I then say 'myFunction.call(objectNamedBruce);' then the this key word will refer to that object. It is much like using the function as a method of the object. If the function has parameters these must be placed after the object. For instance, 'myFunction.call(objectNamedBruce, param1, param2);' You can still use call even if there isn't a 'this' key word in it, you just have to pass in a null for the object. For instance, 'myFunction.call(null, param1, param2);'</p>
+  <p>Apply(): Similar to Call, this funtion allows you to call functions but you pass in the parameters as an array. For instance, 'myFunction.apply(null, [param1, param2];'</p>
+  <p>Custom Properties: Custom functions can have properties, just like an object. You can say, 'myFunction.property = "I have a new property";'</p>
+  <p>Memoization: Using the custom properties mentioned above we can cache answers if we have a time consuming function. just use 'functionName.cache[input] = something'. The Next time it will return the result faster.</p>
+  <p>IIFE functions: defined and immidiately called. (function(){something}'. </p>
+  <p>Recursive Functions: functions that return themselves and put in a new input until the function reaches a certain point. </p>
+  <p>I've used both so I won't get into it, but callbacks and promises are both available in js as are Async functions.</p>
+  <p>Generator Functions: instead of running the code inside the function, a generator object is returned. This can be used to create things like sequences. </p>
+  <p>Pure functions: return a value that only depends on the input values and does not change the value of the input variables.</p>
+  <p>High Order Functions: functions that accept a function as a parameter or return a function.</p>
+  <h3>Chapter 13: AJAX</h3>
+  <p>Intro: Ajax is a technique that allows web pages to communicate asynchronously with a server and it dynaically updates web pages without reloading.</p>
+  <p>The fetch API: Used to gt asyncronous information accross websites. </p>
+  <p>Redirects: Redirect() methos can be used to redirect to another URL. There is no support for redirect() in any browser. </p>
+  <p>Blob: The blob() method is used to read a file of raw data such as an image or a spreadsheet. It returns a promise that resolves with a blob object.</p>
+  <p>Request: We can provide a request object to get more fine-grained control over the request being made. Request objects, once made, can be passed in as the parameter to the fetch call. </p>
+  <p>HEaders: the fetch api introduced a "headers" interface which can be used to create a headers object. Headers usuallyu resolve things like content type and coors information. </p>
+  <p>Sending Information: Ajax can also be used to send information. Usually we do this as a json string. </p>
+  <p>Form Data: The fetch API includes a formdata interface which makes it easier to submit information in forms using Ajax. It can be used to submit files as well. </p>
+
+
+  <footer>
+    &copy;2022 | Matthew B. Christensen | Utah
+    <div id="last-updated"></div>
+  </footer>
+  <script src="../index/js/last-updated.js"></script>
+</body>
+</html>
