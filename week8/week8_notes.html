@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notes for week 1 reading">
+  <link rel="stylesheet" href="../index/css/normalize.css">
+  <link rel="stylesheet" href="../index/css/small.css">
+  <link rel="stylesheet" href="../index/css/medium.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <title>Week 8 Notes</title>
+</head>
+
+<body>
+  <header>
+    <h1>
+      Matthew B. Christensen
+    </h1>
+  </header>
+  <h2>
+    WDD 330: Week 8 Notes
+  </h2>
+  <hr>
+  <h3>
+    Chapter 8: CSS3 Transforms and Transitions
+  </h3>
+  <p>Transforms: The CSS3 transform property lets you translate, rotate, scale, and/or skew any element on the page. </p>
+  <p>Translation: Allows you to move an elements left, right, up, or down. These functions are similar to the behaviour of position when declaring top/left.</p>
+  <p>Transofrms and Older Browsers: To make transforms work in older browsers you can use webkits. '-webkit-transform' for android, '-ms-transform' for IE9 only. Also note that transforms don't work on inline elements. You can fix this by adding 'display: inline-block'.</p>
+  <p>Scaling: scaling function allows you to grow or shrink an element. If only one value is provided it will be used for both the x and the y values, growing or shrinking your element or pseudo-element while maintaining the original aspect ratio.</p>
+  <p>Rotation: Rotates an element around the point of origin by a spcified angle value. By default the point of origin is the elements center. </p>
+  <p>Skew: Specifies a skew along the x and y axes. Skew can be like rotate except that its more like looking at the object from a different perspective.</p>
+  <p>Transform Origin: Function can be used to change the origin of the transform.</p>
+  <p>Keyframes: allow you to animate objects using css. Use the keywords from and to.</p>
+  <p>Moving On: Use animations where necessary to enhance the user experience, everywhere else just skip it. </p>
+  <h3>Chapter 12: Canvas, SVG, and Drag and Drop</h3>
+  <p>Canvas: allows you to draw anything you can imagine on javascript. </p>
+  <p>Creating a canvas element: add a canvas element to the page, '&#60;canvas&#62; &#60;canvas/&#62;'. The canvas is then given through javascript. width and height must be added in the element like for a picture.</p>
+  <p>SVG: a picture made by vector graphics. You can zoom in on them as far as you want and they will keep their quality. </p>
+  <p>Whats XML: Stands for eXtensible Markup Language. </p>
+  <p>Much like the Canvas element, the SVG element needs to be declared with an svg tag. </p>
+  <p>SVG filters: Go to Inkscape, then choose color, moonarize. </p>
+  <p>Drag and Drop: Javascript has a library for this now that makes it super easy. Set an item to be draggable, give it an event listener for the dragstart event. Add event listeners for dragover and drop.  Use the DataTransfer Object to specify an exchenge of information. </p>
+
+
+  <footer>
+    &copy;2022 | Matthew B. Christensen | Utah
+    <div id="last-updated"></div>
+  </footer>
+  <script src="../index/js/last-updated.js"></script>
+</body>
+</html>
