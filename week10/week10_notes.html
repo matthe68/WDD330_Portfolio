@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notes for week 9 reading">
+  <link rel="stylesheet" href="../index/css/normalize.css">
+  <link rel="stylesheet" href="../index/css/small.css">
+  <link rel="stylesheet" href="../index/css/medium.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <title>Week 9 Notes</title>
+</head>
+
+<body>
+  <header>
+    <h1>
+      Matthew B. Christensen
+    </h1>
+  </header>
+  <h2>
+    WDD 330: Week 9 Notes
+  </h2>
+  <hr>
+  <h3>
+    Chapter 9: The Window Object
+  </h3>
+  <p>The Browser Object Model: its a collection of properties and methods that contain information about the browser and computer screen. We can find out the dimensions of the screen and the pages visited before the current page. Can also be used to create pop-up windows. </p>
+  <p>Dialogs: can use alert(), confirm(), and prompt(). Confirm can be nice to ask for confirmation, "window.confirm('Are you sure? You have unsaved data that will be deleted if you continue');" Returns values true and false. Window.prompt() method will stop the execution of the program. It displays a dialog that shows a message provided as an argument, as well as an input field that allows the user to enter text. It returns this as a string when the user clicks OK or null if cancel is returned. </p>
+  <p>Note! do not use the dialogs above if you wish to have something running while the popup is up. They will all stop the program in its tracks.</p>
+  <p>Browser History: The "window.history" property can be used to access information about any previously visited pages in the current browser session. window.history.length returns number of pages in history and window.history.go(#) goes to a specified page (negative to go back, positive to go forward). </p>
+  <p>Controlling Windows: window.open(url) opens a window with the given url. you can also specify a second parameter for the window title and a third parameter that is actually a list of attributes for the window. All of these things (window.open()) can be stored in a variable for later reference. </p>
+  <p>Cookies: cookies are small files that are saved locally on a users computer. This means that a browser does not remember anything from one request to another. Cookies allow to store this information for quicker access later. Cookies can be created with docuemnt.cookie = 'key=Value'. Cookies can be read by simply calling document.cookie. Cookies paths can be redirected using a path attribute. path = / to be exact, or by saying domain=domainName. adding 'secure' to a cookie will ensure it's only transmitted over a secure https network. To delete a cookie you must set it up to expire at a time in the past.  </p>
+  <p>Timing Functions: setTimeout method accepts a callback to a function as its first parameter. SEcond it takes a number of milliseconds. 'window.clearTimeout()' method cancels the timeout. setInterval works like the timeout except that it repeatedly invokes the callback function after ever given number of milliseconds. SetInterval and SetTimeout can both be used to animate objects on the page. </p>
+  <h3>
+    Chapter 14: HTML5 APIs
+  </h3>
+  <p>The data- attribute: The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. </p>
+  <p>Geolocation: The geolocation api is used to obtain the geographical position of the device. for instance, you can use, "navigation.geolocation.getCurrentPosition(() => youAreHere())". This api also provides attributes such as position, speed, altitude, heading, timestamp, accuracy (lat, long). </p>
+  <p>Web Workers: allow things to run in the background. You can use this by using "const worker = new Worker('task.js');"</p>
+  <p>Websockets: It is a new protocol (not HTTP) that allows two-way communication with a server - also known as push messaging. This means that a connection is kept open and responses are 'pushed' to the client as soon as they are received. This is extremely common in development environments to show live updates from the code to the browser. A new Websocket connection can be setup using "const connection = new WebSocket(URL);"</p>
+  <p>Notifications: The notification API allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen. One advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab. Unfortunately you will need to get permissions first. This can be achieved using the "requestPermission()" method of a Notification global object.</p>
+  <p>Multimedia: audio and video tags can be used to display multimedia. </p>
+  <p>Shims and Polyfills: These are libraries of code that allow you to use the API's as usual even though things are being updated constantly. They fill in the necessary code that's not provided natively by the user's browser to make it function normally. </p>
+
+
+
+  <footer>
+    &copy;2022 | Matthew B. Christensen | Utah
+    <div id="last-updated"></div>
+  </footer>
+  <script src="../index/js/last-updated.js"></script>
+</body>
+</html>
