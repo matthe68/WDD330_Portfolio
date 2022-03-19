@@ -89,6 +89,11 @@
       "label": "Week10: ",
       "url": "week10/week10_notes.html",
       "urlText": "Notes"
+    },
+    {
+     "label": "Week10: ",
+     "url": "week10/quakes.html",
+     "urlText": "Quakes Activity"
     }
   ]
 }
