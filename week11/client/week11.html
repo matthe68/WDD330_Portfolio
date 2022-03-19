@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="utf-8" />
-        <title>Local Quakes</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="week11.css">
-    </head>
-    <body>
-        <main>
-            <h1>Boiler Plate</h1>
-            <ul id="quakeList" ></ul>
-        </main>
-        <script src="week11.js" type="module" ></script>
-    </body>
+  <head>
+  <meta charset="utf-8" />
+    <title>Boiler Plate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="week11.css">
+  </head>
+  <body>
+    <main>
+      <h1>Boiler Plate</h1>
+      <form id="login">
+        <fieldset>
+          <legend>Login</legend>
+          <label>Username (email)<input type="text" id="username" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required></label>
+          <label>Password<input type="password" id="password" pattern="/^.{6,}$/" required></label>
+        </fieldset>
+        <button id="login-btn">Login</button>
+      </form>
+      <div id="content" class="hidden">
+        <ul id="list"></ul>
+        <form id="add-post">
+          <fieldset>
+            <legend>Login</legend>
+            <label>Title: <input type="text" id="title" required></label>
+            <label>Content: <input type="text" id="post-content" required></label>
+          </fieldset>
+          <button id="add-post">Add Post</button>
+        </form>
+        
+      </div>
+      
+    </main>
+    <script src="week11.js" type="module" ></script>
+  </body>
 </html>
         

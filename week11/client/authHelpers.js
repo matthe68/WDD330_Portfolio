@@ -2,7 +2,7 @@
 export const baseURL = 'http://127.0.0.1:3000/';
 // helper function to make an http request with fetch.
 // returns a json object
-export async function makeRequest(url = baseURL, method = 'GET', body = null) {
+export async function makeRequest(url, method = 'GET', body = null, token = null ) {
   // we will need to set some custom options for our fetch call
     let options = {
     method: method,
@@ -10,11 +10,13 @@ export async function makeRequest(url = baseURL, method = 'GET', body = null) {
       'Content-Type': 'application/json'
     }
   };
+  if (token) {
+    options.headers.Authorization = `Bearer ${token}`;
+  }
   // if we are sending any data with the request add it here
   if (method == 'POST' || method == 'PUT') {
     options.body = JSON.stringify(body);
   }
-  
   const response = await fetch(baseURL + url, options);
   // in this case we are processing the response as JSON before we check the status. The API we are using will send back more meaningful error messages than the default messages in the response, but we have to convert it before we can get to them.
   const data = await response.json();

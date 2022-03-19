@@ -54,6 +54,10 @@ server.post('/login', (req, res) => {
   res.status(200).json({ accessToken });
 });
 server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+server.use((req, res, next) => {
   if (req.method === 'POST') {
     const { authorization } = req.headers;
     if (authorization) {
