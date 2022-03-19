@@ -94,6 +94,11 @@
      "label": "Week10: ",
      "url": "week10/quakes.html",
      "urlText": "Quakes Activity"
+    },
+    {
+      "label": "Week11",
+      "url": "week11/client/week11.html",
+      "urlText": "Boiler Plate"
     }
   ]
 }
