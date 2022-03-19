@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Montserrat:wght@100&display=swap" rel="stylesheet">
-  <title>Week 9 Notes</title>
+  <title>Week 10 Notes</title>
 </head>
 
 <body>
@@ -21,29 +21,32 @@
     </h1>
   </header>
   <h2>
-    WDD 330: Week 9 Notes
+    WDD 330: Week 10 Notes
   </h2>
   <hr>
   <h3>
-    Chapter 9: The Window Object
+    mdn web docs_: Client-side Validation
   </h3>
-  <p>The Browser Object Model: its a collection of properties and methods that contain information about the browser and computer screen. We can find out the dimensions of the screen and the pages visited before the current page. Can also be used to create pop-up windows. </p>
-  <p>Dialogs: can use alert(), confirm(), and prompt(). Confirm can be nice to ask for confirmation, "window.confirm('Are you sure? You have unsaved data that will be deleted if you continue');" Returns values true and false. Window.prompt() method will stop the execution of the program. It displays a dialog that shows a message provided as an argument, as well as an input field that allows the user to enter text. It returns this as a string when the user clicks OK or null if cancel is returned. </p>
-  <p>Note! do not use the dialogs above if you wish to have something running while the popup is up. They will all stop the program in its tracks.</p>
-  <p>Browser History: The "window.history" property can be used to access information about any previously visited pages in the current browser session. window.history.length returns number of pages in history and window.history.go(#) goes to a specified page (negative to go back, positive to go forward). </p>
-  <p>Controlling Windows: window.open(url) opens a window with the given url. you can also specify a second parameter for the window title and a third parameter that is actually a list of attributes for the window. All of these things (window.open()) can be stored in a variable for later reference. </p>
-  <p>Cookies: cookies are small files that are saved locally on a users computer. This means that a browser does not remember anything from one request to another. Cookies allow to store this information for quicker access later. Cookies can be created with docuemnt.cookie = 'key=Value'. Cookies can be read by simply calling document.cookie. Cookies paths can be redirected using a path attribute. path = / to be exact, or by saying domain=domainName. adding 'secure' to a cookie will ensure it's only transmitted over a secure https network. To delete a cookie you must set it up to expire at a time in the past.  </p>
-  <p>Timing Functions: setTimeout method accepts a callback to a function as its first parameter. SEcond it takes a number of milliseconds. 'window.clearTimeout()' method cancels the timeout. setInterval works like the timeout except that it repeatedly invokes the callback function after ever given number of milliseconds. SetInterval and SetTimeout can both be used to animate objects on the page. </p>
-  <h3>
-    Chapter 14: HTML5 APIs
-  </h3>
-  <p>The data- attribute: The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. </p>
-  <p>Geolocation: The geolocation api is used to obtain the geographical position of the device. for instance, you can use, "navigation.geolocation.getCurrentPosition(() => youAreHere())". This api also provides attributes such as position, speed, altitude, heading, timestamp, accuracy (lat, long). </p>
-  <p>Web Workers: allow things to run in the background. You can use this by using "const worker = new Worker('task.js');"</p>
-  <p>Websockets: It is a new protocol (not HTTP) that allows two-way communication with a server - also known as push messaging. This means that a connection is kept open and responses are 'pushed' to the client as soon as they are received. This is extremely common in development environments to show live updates from the code to the browser. A new Websocket connection can be setup using "const connection = new WebSocket(URL);"</p>
-  <p>Notifications: The notification API allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen. One advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab. Unfortunately you will need to get permissions first. This can be achieved using the "requestPermission()" method of a Notification global object.</p>
-  <p>Multimedia: audio and video tags can be used to display multimedia. </p>
-  <p>Shims and Polyfills: These are libraries of code that allow you to use the API's as usual even though things are being updated constantly. They fill in the necessary code that's not provided natively by the user's browser to make it function normally. </p>
+  <p>What is form validation? : Form validation is making sure that you are recieving the needed information in the correct form before even attempting to send it to the server. We also do form validation so that we can force our users to be secure and to protect ourselves from sql injection.</p>
+  <p>Built in form validation: Required, min/max length, min/max (number), type, and pattern are all built in forms of built-in form validation. Pattern is probably the most useful as you can use regular expressions to make sure that the data is coming in in the correct form and does or doesn't include certain characters in certain orders (think forcing emails/protecting against sql injection, making sure phone numbers are in the correct form). </p>
+  <p>":valid": When an element is valid the ":valid" css pseudo-class applies which lets you apply a specific style to all valid elements. If the user tries to send the data, the form will allow it provided you do not have some javascript to stop them from doing so.</p>
+  <p>":invalid": When an element is invalid, the element matches the ":invalid" CSS pseudo-class and possibly other pseudo-classes like ":out-of-range" that allow you to style invalid elements as well. If the user tries to send the data the browser will block the attempt.</p>
+  <p>Javascript validation: You can use javascript to take control over the look and feel of native error messages or to deal with legacy browsers that do not support HTML's built-in form validation.</p>
+  <p>The Constraint Validation API: Button, fieldset, input, output, select, and text area have a set of methods and properties available. Properties: validationMessage: returns a localized message describing the validation constraints that the control doesn't satisfy; validity: returns a "ValidityState" object that contains several properties describing the validity state of the element; willValidate: returns true if the element will be validated when the form is submitted, false otherwise. The API also makes the following methods available: checkValidity(): returns true if the elements value has no validity problems, false otherwise; reportValidity(): reports invalid fields using events which is useful in combination with the preventDefault() in an onSubmit event handler; setCustomValidity(message): Adds a custom error message to the element; if you set a custom error message, the element is considered to be invalid and the specified error is displayed. </p>
+  
+  <h3>mdn web docs_: Using the Fetch API</h3>
+  <p>I think we've been through the fetch api about 3 times already and I use this every day. The basic rundown is that you do a fetch('website-goes-here').then(response=>response.doSomethingWithIt()).then(do-as-many-or-as-few-of-these-as-you-want);</p>
+  <p>Supplying request options: an optional second parameter to the fetch is to put in an object with init parameters. This can include the method (usually GET, POST, PUT, DELETE), mode, cache, headers, redirect, referrerPolicy, body</p>
+  <p>Sending a request with credentials: fetch('website, {credentials: 'include'});</p>
+  <p>Uploading JSON data: used quite frequently to send information, you can use "fetch('website', {method: 'POST', headers: {Any headers}, body: JSON.stringify(jsonData)});</p>
+  <p>Uploading a file: Files can be uploaded using an HTML input type="file" element, input element, formData(), and fetch(). In the fetch you cna then put 'body: formData' where the formData is 'const formData = new FormData()" type. Multiple files can be used the same way as long as input type of the file has the element '[multiple]' and each file is appended to the formData. Attatching the formData in the same way will upload all files at the same time. </p>
+  <p>Read through text file line by line: This one is similar to concepts that I know, but you can read through a response file line by line by using "getReader". So response.body.getReader();. Then you can do something like, "let { value: chunk, done: readerDone } = await reader.read();
+    chunk = chunk ? utf8Decoder.decode(chunk) : ''; See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">https://developer.mozilla.org/</a> for more information. 
+  </p>
+  <p>Checking that the fetch was successful: use .catch(error=>... Checking Response.ok will tell you if it was ok, if not you can use the catch error method to decide what to do with the error.</p>
+  <p>Supplying your own request object: Instead of passing a path to the resource you want to request into the fetch() call, you can create a request object using the "Request()" constructor and pass the request in to the fetch instead.</p>
+  <p>Headers: You can use an object "Headers()" and then append headers to it. This can be nice to make sure that you are receiving the correct headers back on the response.  </p>
+  <p>Response Objects: Response objects are returned when fetch() promises are resolved. Use the status, statusText, and ok properties. </p>
 
 
 
