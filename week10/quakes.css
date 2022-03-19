@@ -1,0 +1,12 @@
+.listItem {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 2px;
+  box-shadow: 5px 5px 5px rgb(39, 39, 39);
+  background-color: rgb(245, 245, 235);
+  text-align: center;
+}
+.listItem ul {
+  text-align: left;
+  list-style-type: none;
+}
