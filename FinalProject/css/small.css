@@ -1,0 +1,129 @@
+/*===================Common===================*/
+.hidden {
+  display: none !important;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 58px 1fr;
+}
+/*============================================*/
+/*=================Navigation=================*/
+nav {
+  margin-left: auto;
+  margin-right: auto;
+  width: 159px;
+  display: flex;
+  justify-content: center;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  display: inline-block;
+  background-color: #333333;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0; 
+}
+li {
+  display: inline;
+  background-color: #333333;
+  padding: 20px;
+  color: white;
+  width: 140px;
+  cursor: pointer;
+}
+nav li:hover {
+  background-color: #b1b0b0;
+  color: black;
+}
+.active-nav {
+  background-color: #111111;
+  color: white; 
+}
+/*============================================*/
+/*==================Chat tab==================*/
+#chat-history-tab {
+  overflow-y:scroll;
+  display: flex;
+  flex-direction: column;
+}
+#chat-history {
+  margin-top: 10px;
+  /*height: 500px;*/
+  position: relative;
+  overflow-y: scroll;
+  padding-bottom: 0px;
+  flex: 1;
+}
+.response-box {
+  display: flex;
+  overflow:auto;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 96%;
+  margin-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+/*============================================*/
+/*==================Messages==================*/
+.user-chat {
+  float: right;
+  background: #248bf5;
+  color: #FFF;
+  margin-left: 15px;
+}
+.bot-chat {
+  float: left;
+  background: #e5e5ea;
+  color: black;
+  margin-right: 15px;
+}
+.user-chat, .bot-chat {
+  padding: 10px;
+  border-radius: 5px;
+}
+#chat-history::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+#chat-history::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90);
+}
+
+#chat-history::-webkit-scrollbar-track {
+  background: transparent;
+}
+.message-div {
+  position: static;
+  display: block;
+  width: 96%;
+  overflow: auto;
+  margin: 2%;
+}
+/*============================================*/
+/*==================Input Box=================*/
+.response-box > span {
+  flex: auto;
+  min-height: 0;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  overflow-wrap: break-word;
+  overflow-x:auto;
+  background-color: #e5e5ea;
+}
+.response-box > span:focus-visible {
+  outline: none;
+}
+.response-box > button {
+  width: auto;
+  margin-left: 5px;
+}
+/*============================================*/
