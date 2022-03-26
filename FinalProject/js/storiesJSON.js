@@ -44,7 +44,7 @@ export let storyJson = [
         "responseNumber": 6,
         "botResponse": "Thank you [UsersFirstName], What is your birthday? (Enter in the form mm/dd/yyyy)",
         "expected": [{ "answer": "[DATE]", "path": 7 }],
-        "default": "I'm sorry, please use the form mm/dd/yyyy to enter a date. For example, I was born March 23, 2022 so I would enter \"3/22/2022\"). ",
+        "default": "I'm sorry, please enter a valid date using the form mm/dd/yyyy. For example, I was born March 23, 2022 so I would enter \"3/22/2022\"). ",
         "storedVariable": "UserBirthday"
       },
       {
