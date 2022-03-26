@@ -74,18 +74,66 @@ nav li:hover {
   float: right;
   background: #248bf5;
   color: #FFF;
-  margin-left: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+  align-self: flex-end;
 }
 .bot-chat {
   float: left;
   background: #e5e5ea;
   color: black;
-  margin-right: 15px;
+  margin-right: 50px;
+  margin-left: 10px;
+  align-self: flex-start;
 }
 .user-chat, .bot-chat {
-  padding: 10px;
-  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;  
+  /*====tail====*/
+  position: relative;
 }
+/*====tail====*/
+.user-chat:before,
+.bot-chat:before {
+  width: 20px;
+}
+.user-chat:after,
+.bot-chat:after {
+  width: 26px;
+}
+.user-chat:before,
+.bot-chat:before,
+.user-chat:after,
+.bot-chat:after {
+  position: absolute;
+  bottom: 0;
+  height: 17px;
+  content: '';
+}
+.user-chat:before {
+  right: -7px;
+  background-color: #248bf5;
+  border-bottom-left-radius: 16px 14px;
+}
+.user-chat:after {
+  right: -26px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+}
+.bot-chat:before {
+  left: -7px;
+  background-color: #e5e5ea;
+  border-bottom-right-radius: 16px 14px;
+}
+.bot-chat:after {
+  background-color: white;
+  left: -26px;
+  border-bottom-right-radius: 10px;
+}
+/*============*/
 #chat-history::-webkit-scrollbar {
   width: 5px;
   height: 10px;
@@ -100,10 +148,11 @@ nav li:hover {
 }
 .message-div {
   position: static;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 96%;
   overflow: auto;
-  margin: 2%;
+  margin: 5px;
 }
 /*============================================*/
 /*==================Input Box=================*/

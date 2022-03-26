@@ -9,6 +9,5 @@ export class TextsModel {
   addText(person, message) {
     addMessage(person, message);
     this.messages = getMessages();
-    console.log("this.messages updated: ", this.messages);
   }
 }

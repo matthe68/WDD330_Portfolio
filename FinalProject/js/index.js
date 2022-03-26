@@ -1,6 +1,7 @@
 import { TextsModel } from "./TextsModel.js";
 import { updateTextHistory } from "./ViewTexts.js";
 import { removeAllMessages } from "./utilities.js";
+import { BotLogic } from "./botLogic.js";
 
 //TODO: REMOVE THE NEXT LINE WHEN IT IS READY TO BE LIVE!!!
 removeAllMessages();
@@ -13,9 +14,7 @@ let chatTab = document.querySelector("#chat-history-tab");
 
 [...navButtons].forEach((li) => {
   li.addEventListener('click', function(e) {
-    console.log("inside nav click function");
     if (storiesTabButton.classList.contains("active-nav") && e.target.id == "chat-nav") {
-      console.log("inside if");
       //show which tab is active
       storiesTabButton.classList.remove("active-nav");
       chatTabButton.classList.add("active-nav");
@@ -23,26 +22,24 @@ let chatTab = document.querySelector("#chat-history-tab");
       chatTab.classList.remove("hidden");
       storiesTab.classList.add("hidden");
     } else if(chatTabButton.classList.contains("active-nav") && e.target.id == "stories-nav") {
-      console.log("inside if else");
       //show which tab is active
       chatTabButton.classList.remove("active-nav");
       storiesTabButton.classList.add("active-nav");
       //hide stories and display the chat
       storiesTab.classList.remove("hidden");
       chatTab.classList.add("hidden");
-    } else {
-      console.log("Do Nothing");
     }
   })
 });
-var chatHistory = document.querySelector("#chat-history");
+let chatHistory = document.querySelector("#chat-history");
 chatHistory.scrollTop = chatHistory.scrollHeight;
 
 //===============================================================================
 
 let textsModel = new TextsModel();
+let bot = new BotLogic();
+bot.init(textsModel);
 let messages = textsModel.getTexts();
-console.log("messagesJson: ", messages);
 //display messages on screen
 //TODO: display messages
 updateTextHistory(messages);
@@ -55,6 +52,21 @@ document.querySelector("#send-button").addEventListener('click', function() {
   updateTextHistory(newMessages);
   chatHistory.scrollTop = chatHistory.scrollHeight;
   document.querySelector("#input-text-box").innerHTML = "";
+  bot.takeInputAndRepsond(newMessage);
+  //display messages on screen
+});
+document.querySelector("#input-text-box").addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    let newMessage = document.querySelector("#input-text-box").innerHTML;
+    textsModel.addText('user', newMessage);
+    let newMessages = textsModel.getTexts();
+    updateTextHistory(newMessages);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+    document.querySelector("#input-text-box").innerHTML = "";
+    bot.takeInputAndRepsond(newMessage);
+    return false;
+  }
   //display messages on screen
 });
 //===============================================================================
