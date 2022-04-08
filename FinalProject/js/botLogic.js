@@ -1,6 +1,8 @@
 import { storyJson } from "./storiesJSON.js";
 import { getFinishedStories, setUserVariable, getAllUserVariables, setFinishedStory } from "./utilities.js";
 import { updateTextHistory } from "./ViewTexts.js";
+import { updateStories } from "./stories.js";
+import { insertStoredVariables } from "./stories.js";
 
 export class BotLogic {
   constructor() {
@@ -12,15 +14,21 @@ export class BotLogic {
     this.currentStepDigit = ""; //Digit, will refer to the place of the json in the array "storyStep"
     this.textsModel;
     this.storyEnded = false;
+    console.log("storyJson: ", storyJson);
   }
   init(textsModel = null) {
+    console.log("init Start: ", storyJson);
     console.log("inside BotLogic: init()");
-    this.completedStories = getFinishedStories() || [];
+    this.completedStories = JSON.parse(JSON.stringify(getFinishedStories())) || [];
+    console.log("completedStories: ", this.completedStories, "JSON: ", this.storyJson);
     this.currentStory = this.completedStories.length;
-    this.storyJson = storyJson;
+    console.log("set length: JSON: ", this.storyJson);
+    this.storyJson = JSON.parse(JSON.stringify(storyJson));
+    console.log("reset storyJson: JSON: ", this.storyJson);
     this.lastResponse = "";
     this.textsModel = textsModel == null ? this.textsModel : textsModel;
- 
+    console.log("WE ARE ON STORY NUMBER: ", this.currentStory);
+    console.log("%%%%%%%%%%%%%%% this.storyJson", this.storyJson);
     // bot sets the current step to be: this.storyJson[this.currentStory].storyStep[0]
     if (this.storyJson[this.currentStory] != undefined) {
       this.currentStep = this.storyJson[this.currentStory].storyStep[0];
@@ -31,8 +39,10 @@ export class BotLogic {
     } else {
       this.sendResponseToUser("I'm sorry, there are no more stories for you to do at this time. Please come back soon, I'm constantly adding new stories and should have more content available soon!");
     }
+    console.log("init End: ", storyJson);
   }
   takeInputAndRepsond(string) {
+    console.log("takeInputAndRepsond Start: ", storyJson);
     console.log("Inside of takeInputAndRespond in the BotLogic");
     if (this.storyEnded && string != "BEGIN") {
       this.sendResponseToUser("If you would like to start the next story, please type \"BEGIN\" in all caps.");
@@ -54,9 +64,11 @@ export class BotLogic {
         
         this.sendResponseToUser(this.currentStep.botResponse);
       }
-    }    
+    }   
+    console.log("takeInputAndRepsond End: ", storyJson); 
   }
   checkAnswerAndStoreVariables(step) { //return true if matches/variable stored (if necessary)
+    console.log("checkAnswerAndStoreVariables Start: ", storyJson);
     let r = -1;
     if (this.lastResponse == "QUIT") {
       this.quitCurrentStory();
@@ -70,14 +82,21 @@ export class BotLogic {
             (step.expected[i].answer == 'n' && ( this.lastResponse.toLowerCase() == 'n' || this.lastResponse.toLowerCase() == 'no')) ? step.expected[i].path : 
             r;
         if (step.expected[i].answer == "[STRING]" && this.lastResponse.toString().length > 0 && step.storedVariable) {
-          setUserVariable(step.storedVariable, this.lastResponse.toString());
+          setUserVariable(step.storedVariable, this.lastResponse.toString(), this.storyJson.storyName);
           r = step.expected[i].path;
         } else if (step.expected[i].answer == "[DATE]") {
           let isDate = this.validateDate(this.lastResponse.toString());
           if ( isDate ) {
-            setUserVariable(step.storedVariable, this.lastResponse.toString());
+            setUserVariable(step.storedVariable, this.lastResponse.toString(), this.storyJson.storyName);
           }
           r = isDate ? step.expected[i].path : r;
+        } else if (step.expected[i].answer == "[Number]") {
+          let isNumber = !isNaN(this.lastResponse);
+          console.log("last response: ", this.lastResponse, " isNumber: ", isNumber);
+          if ( isNumber ) {
+            setUserVariable(step.storedVariable, this.lastResponse.toString(), this.storyJson.storyName);
+          }
+          r = isNumber ? step.expected[i].path : r;
         }
       }
       //check for end of story
@@ -89,34 +108,32 @@ export class BotLogic {
         this.endCurrentStory();
       }
     }
+    console.log("checkAnswerAndStoreVariables End: ", storyJson);
     return r;
   }
   sendResponseToUser(newMessage) {
-    let m = this.insertStoredVariables(newMessage);
+    console.log("sendResponseToUser Start: ", storyJson);
+    let m = insertStoredVariables(newMessage);
     this.textsModel.addText('bot', m);
     let newMessages = this.textsModel.getTexts();
     updateTextHistory(newMessages);
     let chatHistory = document.querySelector("#chat-history");
     chatHistory.scrollTop = chatHistory.scrollHeight;
-  }
-  insertStoredVariables(message) {
-    if (message.match("\\[.*]")) {
-      let vToReplace = message.match("\\[.*]");
-      let vName = vToReplace[0].replace("[", "").replace("]", "");
-      let vValue;
-      let vArray = getAllUserVariables();
-      for (let i = 0; i < vArray.length; i++) {
-        if (Object.keys(vArray[i])[0] == vName) {
-          vValue = Object.values(vArray[i])[0]
-        }
-      }
-      return message.replace(vToReplace[0], vValue);
-    }
-    return message;
+    console.log("sendResponseToUser End: ", storyJson);
   }
   endCurrentStory() {
-    setFinishedStory(this.storyJson[this.currentStory].storyName);
+    console.log("endCurrentStory Start: ", storyJson);
+    let dateObj = new Date();
+    let month = dateObj.getUTCMonth() + 1; //months from 1-12
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+    let today = `${month}/${day}/${year}`;
+    console.log("this.storyJson[this.currentStory].storyName: ", storyJson[this.currentStory].storyName, " story Number: ", this.currentStory);
+    console.log("this.storyJson: ", storyJson);
+    setFinishedStory(storyJson[this.currentStory].storyName, today);
     this.storyEnded = true;
+    updateStories();
+    console.log("endCurrentStory End: ", storyJson);
   }
   quitCurrentStory() {
     this.storyEnded = true;

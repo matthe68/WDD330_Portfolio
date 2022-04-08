@@ -2,6 +2,7 @@ import { TextsModel } from "./TextsModel.js";
 import { updateTextHistory } from "./ViewTexts.js";
 import { removeAllMessages } from "./utilities.js";
 import { BotLogic } from "./botLogic.js";
+import { updateStories } from "./stories.js";
 
 //TODO: REMOVE THE NEXT LINE WHEN IT IS READY TO BE LIVE!!!
 removeAllMessages();
@@ -43,10 +44,13 @@ let messages = textsModel.getTexts();
 //display messages on screen
 //TODO: display messages
 updateTextHistory(messages);
+updateStories();
 
 //listen for new messages
 document.querySelector("#send-button").addEventListener('click', function() {
   let newMessage = document.querySelector("#input-text-box").innerHTML;
+  newMessage = newMessage == null ? " " : newMessage == undefined ? " " : newMessage;
+  console.log("newMessage: ", newMessage);
   textsModel.addText('user', newMessage);
   let newMessages = textsModel.getTexts();
   updateTextHistory(newMessages);
@@ -59,6 +63,8 @@ document.querySelector("#input-text-box").addEventListener('keypress', function(
   if (e.key === 'Enter') {
     e.preventDefault();
     let newMessage = document.querySelector("#input-text-box").innerHTML;
+    newMessage = newMessage == null ? " " : newMessage == undefined ? " " : newMessage;
+    console.log("newMessage: ", newMessage);
     textsModel.addText('user', newMessage);
     let newMessages = textsModel.getTexts();
     updateTextHistory(newMessages);

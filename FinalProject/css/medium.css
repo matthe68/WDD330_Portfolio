@@ -1,0 +1,8 @@
+
+@media (min-width: 500px) {
+  #chat-history-tab {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

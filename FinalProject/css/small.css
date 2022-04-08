@@ -6,7 +6,7 @@ body {
   height: 100vh;
   margin: 0;
   display: grid;
-  grid-template-rows: 58px 1fr;
+  grid-template-rows: 63px 1fr;
 }
 /*============================================*/
 /*=================Navigation=================*/
@@ -19,9 +19,9 @@ nav {
 }
 nav ul {
   list-style-type: none;
-  margin: 0;
+  margin: 5px 0 0 0;
   display: inline-block;
-  background-color: #333333;
+  /*background-color: #333333;*/
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 0;
@@ -34,6 +34,7 @@ li {
   color: white;
   width: 140px;
   cursor: pointer;
+  border-radius: 5px;
 }
 nav li:hover {
   background-color: #b1b0b0;
@@ -46,15 +47,18 @@ nav li:hover {
 /*============================================*/
 /*==================Chat tab==================*/
 #chat-history-tab {
-  overflow-y:scroll;
+  padding-right: 0;
+  overflow-y:auto;
   display: flex;
   flex-direction: column;
+  font-family: sans-serif;
 }
 #chat-history {
   margin-top: 10px;
   /*height: 500px;*/
   position: relative;
   overflow-y: scroll;
+  overflow-x: hidden;
   padding-bottom: 0px;
   flex: 1;
 }
@@ -75,18 +79,21 @@ nav li:hover {
   background: #248bf5;
   color: #FFF;
   margin-left: 30px;
-  margin-right: 30px;
+  margin-right: 10px;
   align-self: flex-end;
+  overflow-x:visible;
 }
 .bot-chat {
   float: left;
   background: #e5e5ea;
   color: black;
-  margin-right: 50px;
+  margin-right: 30px;
   margin-left: 10px;
   align-self: flex-start;
 }
 .user-chat, .bot-chat {
+  min-height: 20px;
+  word-break:break-word;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 15px;
@@ -151,8 +158,8 @@ nav li:hover {
   display: flex;
   flex-direction: column;
   width: 96%;
-  overflow: auto;
   margin: 5px;
+  overflow-x:visible;
 }
 /*============================================*/
 /*==================Input Box=================*/
@@ -176,3 +183,50 @@ nav li:hover {
   margin-left: 5px;
 }
 /*============================================*/
+/*===================Stories==================*/
+#stories-tab {
+  background-color: rgb(234,243,255);
+}
+.story {
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 6px;
+}
+.story-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  align-content: center;
+  height: 50px;
+  line-height: 40px;
+}
+.expanded-story {
+  padding: 0 10px 10px 10px;
+  margin-top: -5px;
+}
+.story:hover {
+  box-shadow: 0px 0px 10px rgb(92, 91, 91);
+}
+.story-header > span {
+  padding: 5px;
+}
+.story-header span:last-child {
+  /*font-style: italic;*/
+  color:#b1b0b0;
+  font-size: small;
+}
+/*============================================*/
+/*================Empty Message===============*/
+.empty-message {
+  text-align: center;
+  font-style: italic;
+  color:rgb(70, 70, 70);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+/*============================================*/
+
