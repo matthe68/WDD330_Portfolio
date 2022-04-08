@@ -12,8 +12,8 @@ export function addMessage(person, message) {
   window.localStorage.setItem("messages-chat-bot", messagesJson);
 }
 export function removeAllMessages() {
-  window.localStorage.setItem("messages-chat-bot", "[]");
-  window.localStorage.setItem("completed-stories", "[]");
+  //window.localStorage.setItem("messages-chat-bot", "[]");
+  //window.localStorage.setItem("completed-stories", "[]");
 }
 
 export function getFinishedStories() {
