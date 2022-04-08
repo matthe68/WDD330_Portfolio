@@ -99,6 +99,11 @@
       "label": "Week11",
       "url": "week11/client/week11.html",
       "urlText": "Boiler Plate"
+    },
+    {
+      "label": "Final Project",
+      "url": "FinalProject/chatbot.html",
+      "urlText": "Final Project"
     }
   ]
 }
